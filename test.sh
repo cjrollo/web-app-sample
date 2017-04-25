@@ -14,5 +14,12 @@ else
   echo "api/projects FAILED"
   exit 1
 fi
-exit 0
 
+if curl web:5000/api/projects | grep -q '{"id":2,"name":"Heart Beat"}'; then
+  echo "api/projects succeeded"
+else
+  echo "api/projects FAILED"
+  exit 1
+fi
+
+exit 0
